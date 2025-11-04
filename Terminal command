@@ -1,0 +1,42 @@
+# 1️⃣  Update system packages
+sudo apt update
+
+# 2️⃣  Install Apache2
+sudo apt install apache2 -y
+
+# 3️⃣  Check Apache service status
+sudo systemctl status apache2
+
+# 4️⃣  Start Apache service
+sudo systemctl start apache2
+
+# 5️⃣  Enable Apache to start automatically on boot
+sudo systemctl enable apache2
+
+# 6️⃣  Remove old default files (optional)
+sudo rm -rf /var/www/html/*
+
+# 7️⃣  Copy your project files (HTML, CSS, JS)
+sudo cp -r /home/saurav/Desktop/Notes/* /var/www/html/
+
+# 8️⃣  Give proper permissions
+sudo chmod -R 755 /var/www/html
+
+# 9️⃣  Restart Apache service
+sudo systemctl restart apache2
+
+# 🔟  Check your machine IP address
+hostname -I
+
+# 1️⃣1️⃣  (Optional) Allow Apache through firewall
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+# 1️⃣2️⃣  (Optional) Access your site from LAN
+# In browser → http://<your-IP-address>
+
+# 1️⃣3️⃣  View access logs (who visited your site)
+sudo tail -f /var/log/apache2/access.log
+
+# 1️⃣4️⃣  View error logs (any issues)
+sudo tail -f /var/log/apache2/error.log
